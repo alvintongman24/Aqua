@@ -28,7 +28,7 @@ export default function Navbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <a href="https://instagram.com/aqua_foundation_wop" className="flex items-center">
           {/* <!-- From Uiverse.io by vinodjangid07 -->  */}
 <button class="Btn">
  <span class="svgContainer">
@@ -44,7 +44,7 @@ export default function Navbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <a href="https://x.com/aqua_foundation_wop" className="flex items-center">
           {/* <!-- From Uiverse.io by mRcOol7 -->  */}
 <button class="Btntwit">
     <span class="svgContainertwit">

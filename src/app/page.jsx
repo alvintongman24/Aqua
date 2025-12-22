@@ -24,7 +24,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50"></div> {/* Optional overlay */}
       </div>
       
-      <main className="relative">
+      <main className="">
         <Navbar/>
         <Firstsection/>
         {/* <FirstSection/> */}

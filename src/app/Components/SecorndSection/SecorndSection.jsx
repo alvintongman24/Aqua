@@ -23,7 +23,7 @@ export default function Firstsection() {
      
                <section className="md:my-20">
                    
-               <section className=" md:flex justify-end items-end   bg-black/50 text-amber-50 p-5 shadow-2xl rouneded-md">
+               <section className=" md:flex justify-end items-end   bg-black/50 text-amber-50 pt-5 shadow-2xl rouneded-md">
                    <div class="gallery-container relative mx-auto w-full max-w-lg h-[500px] md:h-[600px] mb-20">
             {/* <!-- First image (back) --> */}
             <div class="stack-item absolute w-4/5 left-0 bottom-0 h-4/5 z-10">

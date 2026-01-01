@@ -18,7 +18,7 @@ export default function FourthSection() {
                         <h1>KEY ACHIEVEMENTS</h1>
                     </div>
                    <div className=" md:flex justify-center items-center  md:gap-10 ">
-                    <div className="flex  items-center text-left   bg-black/50  italic text-amber-50 sm:text-lg md:text-2xl text-center md:p-5 p-2 rounded-2xl shadow-2xl">
+                    <div className="flex  items-center text-left   bg-black/50  italic text-amber-50 sm:text-lg md:text-2xl text-center md:p-5 p-2 rounded-2xl shadow-2xl text-[10px] md:text-lg">
                         <p>The Aqua Foundation is dedicated to uplifting the most vulnerable in society — widows, orphans, prisoners, the destitute, and the poorest of the poor. We exist to provide access to healthcare, education, welfare support, legal aid, and sustainable empowerment opportunities. Our mission is rooted in charity, compassion, and collective action, ensuring that poverty is reduced and dignity is restored. Regardless of ethnicity, religion, race, gender, or nationality, we believe that by joining hands, we can meet the needs of many, inspire hope, and create a pathway to a better life for those society often overlooks.
 
 Our vision is to build a society where no one is denied the basic needs of life — food, shelter, education, water, healthcare, justice, and dignity. We seek to restore hope to those who feel all is lost, empower the disadvantaged, and provide legal aid to victims of injustice. Through community outreach, data-driven interventions, and partnerships, we strive to address prioritized needs such as clean water, school facilities, healthcare infrastructure, correctional welfare, and post-prison reintegration. The Aqua Foundation envisions a future where vulnerable individuals and communities are empowered to not only survive but to thrive — with smiles restored, rights protected, and lives transformed..</p>
@@ -94,7 +94,7 @@ Our vision is to build a society where no one is denied the basic needs of life 
 
     <div  class="space-y-10  bg-gray-100 md:p-10 p-1  rounded-2xl shadow-2xl mt-20">
        <div id="contact" class="bg-transparent rounded-2xl shadow-xl md:p-8 p-0 w-full border border-gray-100">
-                    <h2 class="text-3xl text-center font-bold text-black mb-2">Send us a message</h2>
+                    <h2 class="text-3xl text-center font-bold text-black mb-2">Contact Us To Make Donations and Other Services</h2>
                     <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
                     
                     <form class="space-y-6"   action="mailto:Zemgloballtd@gmail.com" method="POST">

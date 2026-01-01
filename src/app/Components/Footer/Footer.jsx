@@ -3,8 +3,8 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="mx-auto p-5 bg-black text-white">
-      <div className="block md:flex justify-center md:justify-between items-center p-5 text-center md:text-start">
+    <footer className="mx-auto md:p-5 bg-black text-white text-[8px] md:text-sm lg:text-md">
+      <div className="block flex justify-between items-center p-5  md:text-start">
         <div className="py-5">
           <h1 className="py-5">Contact US</h1>
           <a 

@@ -11,7 +11,7 @@ export default function Firstsection() {
                <section className="md:m-34 m-10">
                    
                <section className=" md:flex justify-end items-end">
-                   <motion.div initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}   className="rounded-2xl  border  ">
+                   <motion.div initial={{ opacity: 0, scale: 0 }} whileInView={{ opacity: 1, scale: 1 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}   className="rounded-2xl shadow-2xl ">
   <img src="https://media.gettyimages.com/id/1142857507/photo/hands-of-poor-african-children-asking-for-drinking-water.jpg?s=612x612&w=0&k=20&c=Isc7kqYXlMuQfX6t1b9inINX-ElgClZkT3tMv41sXW0=" alt="Description of the image" className="rounded-lg" />
 </motion.div>
 

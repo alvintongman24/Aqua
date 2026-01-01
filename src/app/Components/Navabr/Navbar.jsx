@@ -74,7 +74,7 @@ export default function Navbar() {
   );
 
   return (
-    <MTNavbar className="sticky top-0 z-10 m-0 h-max max-w-full rounded-none px-4 py-2  border border-transparent bg-transparent  backdrop-blur-md ">
+    <MTNavbar className="sticky top-0 z-10 m-0 h-max max-w-full rounded-none px-4 py-2  border border-transparent backdrop-blur-2xl bg-white/5 shadow-2xl shadow-black/20 border border-white/10 backdrop-blur-md shadow-2xl shadow-black/100">
       <div className="flex items-center justify-between text-blue-gray-900">
        <div className="mr-4 hidden lg:block">{navList}</div>
         <Typography

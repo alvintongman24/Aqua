@@ -2,14 +2,41 @@
 "use client";
 
 
-import React from "react";
+import React, { useState } from "react";
 import { 
   CircleDot
 } from 'lucide-react';
+// Import as a module
+
+import * as Paystack from '@paystack/inline-js';
+
+
+
 
 
 
 export default function FourthSection() {
+
+  const paystackInstance = new Paystack.default();
+
+  const [Donate, setDonate] = useState('');
+   const [Email, setEmail] = useState('');
+
+
+  const handlePaystackPayment = (e) => {
+    e.preventDefault();
+    paystackInstance.newTransaction({
+      key: 'pk_test_2db10eff119fe2cc5679d421526f7dfcb3dc4c43', // Replace with your Paystack public key
+      amount: Donate * 100, // Amount in kobo (e.g., 500000 kobo = 5000 NGN)
+      email: Email, // Customer's email
+      onSuccess: (transaction) => {
+        alert('Payment successful! Transaction reference: ' + transaction.reference);
+      },
+      onCancel: () => {
+        alert('Payment cancelled');
+      },
+    });
+  };
 
       return (
      
@@ -112,7 +139,7 @@ Our vision is to build a society where no one is denied the basic needs of life 
                         
                         <div>
                             <label for="email" class="block text-black font-medium mb-2">Email Address</label>
-                            <input required type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="john.doe@example.com"/>
+                            <input required type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" value={Email} onChange={(e) => setEmail(e.target.value)} placeholder="john.doe@example.com"/>
                         </div>
                         
                         <div>
@@ -121,24 +148,18 @@ Our vision is to build a society where no one is denied the basic needs of life 
                         </div>
                         
                         <div>
-                            <label for="service" class="block text-black font-medium mb-2">Service Interested In</label>
-                            <select required  id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                <option value="">Select a service</option>
-                                <option value="web">Donate</option>
-                                <option value="mobile">Ideas</option>
-                                <option value="cloud">Recuite</option>
-                                <option value="design">Complait</option>
-                                <option value="other">Assistance</option>
-                            </select>
+                            <label for="service" class="block text-black font-medium mb-2" >DONATE</label>
+                            <input placeholder="ex. $2000" type="number" value={Donate} onChange={(e) => setDonate(e.target.value)} required  id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"/>
+                             
                         </div>
                         
                         <div>
-                            <label required for="message" class="block text-black font-medium mb-2">Your Message</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Tell us about your project..."></textarea>
+                            <label required for="message" class="block text-black font-medium mb-2">You can Message Us</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="You can keep track of how we use your donations by asking questions."></textarea>
                         </div>
                         
-                        <button type="submit"  class="w-full bg-black text-white py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center">
-                            <span>Send Message</span>
+                        <button type="submit" onClick={handlePaystackPayment} class="w-full bg-black text-white py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center">
+                            <span>DONATE NOW!!!</span>
                             <i class="fas fa-paper-plane ml-2"></i>
                         </button>
                     </form>
@@ -234,4 +255,4 @@ Our vision is to build a society where no one is denied the basic needs of life 
 
                 
       )
-}
+ };

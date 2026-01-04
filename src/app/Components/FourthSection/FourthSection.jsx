@@ -200,7 +200,7 @@ Our vision is to build a society where no one is denied the basic needs of life 
                         
                         <div>
                             <label for="service" class="block text-black font-medium mb-2" >DONATE</label>
-                            <input placeholder="ex. $2000" type="number" value={Donate} onChange={(e) => setDonate(e.target.value)} required  id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"/>
+                            <input placeholder="ex. N2000" type="number" value={Donate} onChange={(e) => setDonate(e.target.value)} required  id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"/>
                              
                         </div>
                         

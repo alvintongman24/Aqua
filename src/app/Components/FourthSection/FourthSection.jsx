@@ -52,14 +52,14 @@ Our vision is to build a society where no one is denied the basic needs of life 
                     </div>
                     </div>
 
-                     <section class="container mx-auto p-4">
-      <h2 class="text-xl font-semibold">COMMENTS</h2>
+                     <section className="container mx-auto p-4">
+      <h2 className="text-xl font-semibold">COMMENTS</h2>
       <section
-        class="my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         
-        <div class="border p-4 rounded-md flex gap-4">
-          <div class="text-white p-4 rounded-md shadow-2xl">
+        <div className="border p-4 rounded-md flex gap-4">
+          <div className="text-white p-4 rounded-md shadow-2xl">
             <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoxMUc_2D0YRzfmsaVQb5aE3pfTFXRowyngA&s"
               height="30"
@@ -74,9 +74,9 @@ Our vision is to build a society where no one is denied the basic needs of life 
             </p>
           </div>
         </div>
-       
-        <div class="border p-4 rounded-md flex gap-4">
-          <div class="text-white p-4 rounded-md shadow-2xl">
+
+        <div className="border p-4 rounded-md flex gap-4">
+          <div className="text-white p-4 rounded-md shadow-2xl">
             <img
               src="https://media.istockphoto.com/id/1934746708/photo/confident-businessman-wearing-suit-and-tie-agains-isolated-background.jpg?s=612x612&w=0&k=20&c=dAReSxSosKRXvIqMl6xdjaIwd12IB72lLuo0ovHNbGo="
               height="30"
@@ -85,16 +85,16 @@ Our vision is to build a society where no one is denied the basic needs of life 
             />
           </div>
           <div>
-            <h3 class="text-lg font-semibold">Thomos Bratt</h3>
-            <p class="font-light text-sm">
+            <h3 className="text-lg font-semibold">Thomos Bratt</h3>
+            <p className="font-light text-sm">
               we're moving toward a future where food security becomes a reality for more 
     communities worldwide.
             </p>
           </div>
         </div>
       
-        <div class="border p-4 rounded-md flex gap-4">
-          <div class="text-white p-4 rounded-md shadow-2xl">
+        <div className="border p-4 rounded-md flex gap-4">
+          <div className="text-white p-4 rounded-md shadow-2xl">
             <img
               src="https://snworksceo.imgix.net/ame-egl/82590b2d-2891-4e8e-a5b0-8f5594740c92.sized-1000x1000.jpg?w=1000"
               height="30"

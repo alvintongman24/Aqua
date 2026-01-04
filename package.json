@@ -13,9 +13,10 @@
     "@paystack/inline-js": "^2.22.7",
     "framer-motion": "^12.23.26",
     "lucide-react": "^0.541.0",
-    "next": "^16.0.7",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "next": "^16.1.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "webpack-dev-server": "^5.2.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

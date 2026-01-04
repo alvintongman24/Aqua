@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "preinstall": "npx npm-force-resolutions"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -16,7 +17,12 @@
     "next": "^16.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "webpack-dev-server": "^5.2.2"
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3",
+    "undici": "^7.16.0",
+    "webpack-dev-server": "^5.2.2",
+    "whatwg-url": "^15.1.0",
+    "ws": "^8.18.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -24,7 +30,11 @@
     "@types/react": "19.1.11",
     "netlify-cli": "^23.13.0",
     "nodemon": "^3.1.11",
+    "npm-force-resolutions": "^0.0.10",
     "tailwindcss": "^4",
     "typescript": "5.9.2"
+  },
+  "resolutions": {
+    "node-domexception": "^2.0.0"
   }
 }

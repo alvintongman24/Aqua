@@ -1,46 +1,97 @@
 // components/Navbar.jsx
 "use client";
 
-
-import React, { useState } from "react";
-import { 
-  CircleDot
-} from 'lucide-react';
-// Import as a module
-
-import * as Paystack from '@paystack/inline-js';
-
-
-
-
-
+import React, { useState, useEffect, useRef } from "react";
+import { CircleDot } from 'lucide-react';
 
 export default function FourthSection() {
-
-  const paystackInstance = new Paystack.default();
-
   const [Donate, setDonate] = useState('');
-   const [Email, setEmail] = useState('');
+  const [Email, setEmail] = useState('');
+  const [paystackLoaded, setPaystackLoaded] = useState(false);
+  const paystackRef = useRef(null);
 
+  // Load Paystack only on client side
+  useEffect(() => {
+    const loadPaystack = async () => {
+      try {
+        // Dynamically import Paystack (client-side only)
+        const PaystackModule = await import('@paystack/inline-js');
+        
+        // Get the Paystack constructor
+        const PaystackPop = PaystackModule.default || PaystackModule.PaystackPop;
+        
+        if (PaystackPop) {
+          paystackRef.current = PaystackPop;
+          setPaystackLoaded(true);
+        }
+      } catch (error) {
+        console.error('Failed to load Paystack:', error);
+        // Fallback to CDN if module fails
+        if (window.PaystackPop) {
+          paystackRef.current = window.PaystackPop;
+          setPaystackLoaded(true);
+        } else {
+          // Load from CDN
+          const script = document.createElement('script');
+          script.src = 'https://js.paystack.co/v1/inline.js';
+          script.async = true;
+          script.onload = () => {
+            paystackRef.current = window.PaystackPop;
+            setPaystackLoaded(true);
+          };
+          document.body.appendChild(script);
+        }
+      }
+    };
+
+    loadPaystack();
+  }, []);
 
   const handlePaystackPayment = (e) => {
     e.preventDefault();
-    paystackInstance.newTransaction({
-      key: 'pk_test_2db10eff119fe2cc5679d421526f7dfcb3dc4c43', // Replace with your Paystack public key
-      amount: Donate * 100, // Amount in kobo (e.g., 500000 kobo = 5000 NGN)
-      email: Email, // Customer's email
-      onSuccess: (transaction) => {
-        alert('Payment successful! Transaction reference: ' + transaction.reference);
-      },
-      onCancel: () => {
-        alert('Payment cancelled');
-      },
-    });
+    
+    // Check if required fields are filled
+    if (!Donate || !Email) {
+      alert('Please enter donation amount and email address');
+      return;
+    }
+
+    // Check if Paystack is loaded
+    if (!paystackLoaded || !paystackRef.current) {
+      alert('Payment system is still loading. Please wait.');
+      return;
+    }
+
+    try {
+      // Create instance and process payment
+      const paystackInstance = new paystackRef.current();
+      
+      paystackInstance.newTransaction({
+        key: 'pk_test_2db10eff119fe2cc5679d421526f7dfcb3dc4c43',
+        amount: Donate * 100,
+        email: Email,
+        ref: `AQUA_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        onSuccess: (transaction) => {
+          alert('Payment successful! Transaction reference: ' + transaction.reference);
+          // Reset form
+          setDonate('');
+          setEmail('');
+        },
+        onCancel: () => {
+          alert('Payment cancelled');
+        },
+      });
+    } catch (error) {
+      console.error('Payment error:', error);
+      alert('Payment failed: ' + error.message);
+    }
   };
 
-      return (
-     
-                <section className="md:m-34 mt-10">
+  // Rest of your component remains the same...
+  return (
+
+
+     <section className="md:m-34 mt-10">
                     <div className=" text-3xl font-bold text-center text-amber-50 mb-10">
                         <h1>KEY ACHIEVEMENTS</h1>
                     </div>
@@ -252,7 +303,6 @@ Our vision is to build a society where no one is denied the basic needs of life 
                 </div>
                     
                 </section>
-
-                
-      )
- };
+    // ... your existing JSX code
+  );
+}

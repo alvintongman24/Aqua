@@ -27,27 +27,28 @@ const cardsData = [
 
 export default function CardSection() {
   return (
-    <section className="relative bg-brown-300 py-20 md:py-2 m-6 md:m-2">
-      <div className="py-10">
-        <div className="flex flex-col lg:flex-row lg:space-x-4 space-y-6 lg:space-y-0">
-          {cardsData.map((card) => (
-            <div
-              key={card.id}
-              className="bg-cover bg-center w-full lg:w-1/3 h-96 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
-              style={{ backgroundImage: `url('${card.imageUrl}')` }}
-            >
-              <div className="bg-black/55  bg-opacity-50 p-6 h-full flex flex-col justify-end rounded-lg  ">
-                <h3 className="text-2xl font-bold text-blue-400 mb-3">
-                  {card.title}
-                </h3>
-                <p className="text-white">
-                  {card.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div></div>
+    // <section className="relative bg-brown-300 py-20 md:py-2 m-6 md:m-2">
+    //   <div className="py-10">
+    //     <div className="flex flex-col lg:flex-row lg:space-x-4 space-y-6 lg:space-y-0">
+    //       {cardsData.map((card) => (
+    //         <div
+    //           key={card.id}
+    //           className="bg-cover bg-center w-full lg:w-1/3 h-96 p-4 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+    //           style={{ backgroundImage: `url('${card.imageUrl}')` }}
+    //         >
+    //           <div className="bg-black/55  bg-opacity-50 p-6 h-full flex flex-col justify-end rounded-lg  ">
+    //             <h3 className="text-2xl font-bold text-blue-400 mb-3">
+    //               {card.title}
+    //             </h3>
+    //             <p className="text-white">
+    //               {card.description}
+    //             </p>
+    //           </div>
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </div>
+    // </section>
   );
 }

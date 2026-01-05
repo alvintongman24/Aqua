@@ -13,17 +13,6 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Background Image */}
-      <div className="fixed inset-0 -z-10">
-        <Image
-          src="/colors.avif" // Your image in public folder
-          alt="Background"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50"></div> {/* Optional overlay */}
-      </div>
-      
       <main className="">
         <Navbar/>
         <Firstsection/>

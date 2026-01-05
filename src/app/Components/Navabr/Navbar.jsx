@@ -74,13 +74,13 @@ export default function Navbar() {
   );
 
   return (
-    <MTNavbar className="sticky top-0 z-10 m-0 h-max max-w-full rounded-none px-4 py-2  border border-transparent backdrop-blur-2xl bg-white/5 shadow-2xl shadow-black/20 border border-white/10 backdrop-blur-md shadow-2xl shadow-black/100">
+    <MTNavbar className="sticky top-0 z-10 m-0 h-max max-w-full rounded-none px-4 py-2  border border-transparent bg-transparent shadow-none">
       <div className="flex items-center justify-between text-blue-gray-900">
        <div className="mr-4 hidden lg:block">{navList}</div>
         <Typography
           as="a"
           href="#"
-          className="mr-4 cursor-pointer py-1.5 flex items-center text-xs md:text-4xl md:max-w-4xl  font-extrabold text-center md:widest-words text-blue-black"
+          className="mr-4 cursor-pointer py-1.5 flex items-center text-xs md:text-4xl md:max-w-4xl  font-extrabold  font-serif text-center md:widest-words text-black"
         >
         Aqua <img src="logo.png" width="50px" height="50px" alt="" srcset=""></img>  Foundation
         </Typography>
@@ -92,7 +92,7 @@ export default function Navbar() {
               size="sm"
               className="hidden lg:inline-block sm:text-xs md:text-3xl "
             >
-              <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="buttonr hover:shadow-2xl">Contact</button>
+              <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="buttonr hover:shadow-2xl text-black">Contact</button>
             </Button>
            
           </div>
@@ -108,7 +108,7 @@ export default function Navbar() {
                 fill="none"
                 className="h-6 w-6"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                stroke="black"
                 strokeWidth={2}
               >
                 <path
@@ -122,7 +122,7 @@ export default function Navbar() {
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="black"
                 strokeWidth={2}
               >
                 <path
@@ -143,7 +143,7 @@ export default function Navbar() {
              <button onClick={() => document.getElementById('contact')?.scrollIntoView({ 
             behavior: 'smooth',
             block: 'start'  // Ensures it aligns to top of viewport
-          })}  class="buttonr">Contact</button>
+          })}  class="buttonr text-black">Contact</button>
         
         </div>
       </MobileNav>

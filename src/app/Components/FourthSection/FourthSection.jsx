@@ -10,6 +10,10 @@ export default function FourthSection() {
   const [paystackLoaded, setPaystackLoaded] = useState(false);
   const paystackRef = useRef(null);
 
+  
+  const[Time1,setRealTime1]=useState();
+  
+
   // Load Paystack only on client side
   useEffect(() => {
     const loadPaystack = async () => {
@@ -87,6 +91,20 @@ export default function FourthSection() {
     }
   };
 
+
+useEffect(() => {
+    const timer = setInterval(() => {
+      setRealTime1(new Date().getDay());
+    }, 1000);
+return () => clearInterval(timer);
+  }, []);
+
+
+
+
+    
+
+
   // Rest of your component remains the same...
   return (
 
@@ -101,12 +119,12 @@ export default function FourthSection() {
     <div className="relative mb-16 text-center">
         <div className="inline-flex items-center justify-center gap-4 mb-6">
             <div className="w-16 h-1 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-amber-200 via-amber-100 to-orange-100 bg-clip-text text-transparent font-serif tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-amber-300 via-amber-400 to-orange-900 bg-clip-text text-transparent font-serif tracking-tight">
                 KEY ACHIEVEMENTS
             </h1>
             <div className="w-16 h-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"></div>
         </div>
-        <p className="text-amber-100/80 text-lg md:text-xl max-w-2xl mx-auto font-light">
+        <p className="text-amber-600/80 text-lg md:text-xl max-w-2xl mx-auto font-light">
             Transforming Lives Through Compassionate Action
         </p>
     </div>
@@ -303,9 +321,7 @@ export default function FourthSection() {
                                 <h3 className="text-lg font-bold text-gray-900">Robert James</h3>
                                 <p className="text-sm text-gray-500">Philanthropist & Donor</p>
                             </div>
-                            <div className="text-amber-500">
-                                ★★★★★
-                            </div>
+                           
                         </div>
                         <p className="text-gray-700 leading-relaxed mb-4">
                             Significant reductions in global hunger could become achievable in the coming years through strategic partnerships and sustainable interventions.
@@ -314,7 +330,7 @@ export default function FourthSection() {
                             <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
                             </svg>
-                            <span>2 hours ago</span>
+                            <span>{Time1 + 4}days ago</span>
                         </div>
                     </div>
                 </div>
@@ -348,9 +364,7 @@ export default function FourthSection() {
                                 <h3 className="text-lg font-bold text-gray-900">Thomas Bratt</h3>
                                 <p className="text-sm text-gray-500">Humanitarian Advisor</p>
                             </div>
-                            <div className="text-amber-500">
-                                ★★★★☆
-                            </div>
+                           
                         </div>
                         <p className="text-gray-700 leading-relaxed mb-4">
                             We're moving toward a future where food security becomes a reality for more communities worldwide through innovation and collective action.
@@ -359,7 +373,7 @@ export default function FourthSection() {
                             <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
                             </svg>
-                            <span>5 hours ago</span>
+                            <span> {Time1 + 1}days ago</span>
                         </div>
                     </div>
                 </div>
@@ -393,9 +407,7 @@ export default function FourthSection() {
                                 <h3 className="text-lg font-bold text-gray-900">H. Wellson</h3>
                                 <p className="text-sm text-gray-500">Development Expert</p>
                             </div>
-                            <div className="text-amber-500">
-                                ★★★★★
-                            </div>
+                           
                         </div>
                         <p className="text-gray-700 leading-relaxed mb-4">
                             The prospect of reduced global hunger in the coming years represents a remarkable achievement in human progress and collaborative humanitarian work.
@@ -404,7 +416,7 @@ export default function FourthSection() {
                             <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
                             </svg>
-                            <span>1 day ago</span>
+                            <span> {Time1 + 3} day ago</span>
                         </div>
                     </div>
                 </div>

@@ -18,8 +18,8 @@ export default function Home() {
         <Firstsection/>
         {/* <FirstSection/> */}
          <SecorndSection/>
-         <ThirdSection/>
          <FourthSection/>
+         <ThirdSection/>
          <Footer/>
       </main>
     </div>

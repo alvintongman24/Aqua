@@ -7,6 +7,8 @@ import ThirdSection from "./Components/ThirdSection/ThirdSection.jsx";
 import FourthSection from "./Components/FourthSection/FourthSection.jsx";
 import Firstsection from "./Components/FirstSection/Firstsection";
 import Footer from "./Components/Footer/Footer.jsx";
+import ContactSection from "./Components/ContactSection/ContactSection.jsx";
+
 
 
 export default function Home() {
@@ -20,6 +22,7 @@ export default function Home() {
          <SecorndSection/>
          <FourthSection/>
          <ThirdSection/>
+         <ContactSection/>
          <Footer/>
       </main>
     </div>

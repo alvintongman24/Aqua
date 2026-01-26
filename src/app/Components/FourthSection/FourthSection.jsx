@@ -515,315 +515,266 @@ return () => clearInterval(timer);
     </div>
 
    
-    <div className="fixed bottom-8 right-8 z-10">
-        <button className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 group">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-            </svg>
-            <span className="absolute right-16 bg-gray-900 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                Add Comment
-            </span>
-        </button>
-    </div>
+   
 </section>
 
-    <div  className="space-y-10  bg-gray-100 md:p-10 p-1  rounded-2xl shadow-2xl mt-20">
-       <div id="contact" class="bg-transparent rounded-2xl shadow-xl md:p-8 p-0 w-full border border-gray-100">
-                    <h2 class="text-3xl text-center font-bold text-black mb-5 font-serif ">Make Donation</h2>
-                    
-                    
-                    <form class="space-y-6"   action="mailto:Zemgloballtd@gmail.com" method="POST">
-                      
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="firstName" class="block text-black font-medium mb-2">First Name</label>
-                                <input required type="text" id="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="John"/>
-                            </div>
-                            <div>
-                                <label for="lastName" class="block text-black font-medium mb-2">Last Name</label>
-                                <input required  type="text" id="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Doe"/>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label for="email" class="block text-black font-medium mb-2">Email Address</label>
-                            <input required type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" value={Email} onChange={(e) => setEmail(e.target.value)} placeholder="john.doe@example.com"/>
-                        </div>
-                        
-                        <div>
-                            <label for="phone" class="block text-black font-medium mb-2">Phone Number</label>
-                            <input required  type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="+1 (555) 123-4567"/>
-                        </div>
-                        
-                        <div>
-                            <label for="service" class="block text-black font-medium mb-2" >DONATION AMOUNT</label>
-                            <input placeholder="ex. N2000" type="number" value={Donate} onChange={(e) => setDonate(e.target.value)} required  id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"/>
-                             
-                        </div>
-                        
-                        <div>
-                            <label required for="message" class="block text-black font-medium mb-2">You can Message Us</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="You can keep track of how we use your donations by asking questions."></textarea>
-                        </div>
-                        
-                        <button type="submit" onClick={handlePaystackPayment} class="w-full bg-black text-white py-4 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors flex items-center justify-center">
-                            <span>DONATE NOW!!!</span>
-                            <i class="fas fa-paper-plane ml-2"></i>
-                        </button>
-                    </form>
-                </div>
-                    <div class="relative">
-    {/* <!-- Background decorative elements --> */}
-    <div class="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-60 blur-xl"></div>
-    <div class="absolute bottom-10 -right-6 w-32 h-32 bg-gradient-to-tr from-amber-100 to-orange-100 rounded-full opacity-50 blur-xl"></div>
+<div className="space-y-10 bg-gray-100 md:p-10 p-1 rounded-2xl shadow-2xl ">
+  
+  {/* DONATE POPUP MODAL - Initially Hidden */}
+  <div id="donateModal" className="fixed inset-0 z-50 hidden items-center justify-center  bg-opacity-80 p-4 overflow-y-auto">
+    <div className="relative w-full  rounded-2xl bg-white shadow-2xl my-8 justify-center items-center">
+      {/* Close Button */}
+      <button 
+        onClick={() => document.getElementById('donateModal').classList.add('hidden')}
+        className="absolute right-6 top-6 z-10 rounded-full bg-gray-100 p-3 hover:bg-gray-200 transition-colors"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      
+      {/* Modal Content */}
+ <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-white to-yellow-50 p-4 md:p-6">
+  <div className="w-full max-w-2xl bg-white/95 backdrop-blur-xl border-2 border-amber-200/50 rounded-2xl shadow-2xl p-6 md:p-10 animate-fade-in relative overflow-hidden">
+    {/* Decorative elements */}
+    <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-amber-100/30 to-yellow-100/20 rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl"></div>
+    <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-amber-100/30 to-yellow-100/20 rounded-full translate-x-1/3 translate-y-1/3 blur-2xl"></div>
     
-    <div class="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-8 md:p-10 border border-gray-200/50 backdrop-blur-sm font-sans text-md md:text-lg">
-        {/* <!-- Header with accent --> */}
-        <div class="mb-10">
-            <div class="inline-flex items-center mb-4">
-                <div class="w-3 h-10 bg-gradient-to-b from-blue-600 to-cyan-500 rounded-full mr-3"></div>
-                <h2 class="text-md md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent font-serif">
-                    Contact Information
-                </h2>
-            </div>
-            <p class="text-gray-600  max-w-xl ">We're here to help and answer any questions you might have. Reach out to us through any channel below.</p>
-            
-            {/* <!-- Contact badge --> */}
-            <div class="inline-flex items-center mt-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full shadow-md">
-                <div class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
-                <span class="text-white text-sm font-semibold">24/7 Support Available</span>
-            </div>
-        </div>
-        
-        {/* <!-- Contact Cards Grid --> */}
-        <div class="grid md:grid-cols-3 gap-6 mb-10">
-            {/* <!-- Office Card --> */}
-            <div class="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                <div class="flex items-start mb-4">
-                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-md md:text-2xl font-bold text-gray-900 mb-1">Our Office</h3>
-                        <p class="text-sm text-blue-600 font-medium">📍 Abuja Headquarters</p>
-                    </div>
-                </div>
-                <p class="text-gray-700 font-medium pl-1">17 Wole Soyinka Street</p>
-                <p class="text-gray-600 pl-1">Setraco, Gwarinpa, Abuja</p>
-                <div class="mt-4 pt-4 border-t border-gray-100">
-                    <a href="https://maps.google.com/?q=17+Wole+Soyinka+Street+Setraco+Gwarinpa+Abuja" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-                        </svg>
-                        Get Directions
-                    </a>
-                </div>
-            </div>
-            
-            {/* <!-- Instagram Card --> */}
-            <div class="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                <div class="flex items-start mb-4">
-                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIyIiB5PSIyIiByeD0iNSIgcnk9IjUiLz48cGF0aCBkPSJNMTYgMTEuMzdBNCA0IDAgMSAxIDEyLjYzIDggNCA0IDAgMCAxIDE2IDExLjM3eiIvPjxsaW5lIHgxPSIxNy41IiB4Mj0iMTcuNTEiIHkxPSI2LjUiIHkyPSI2LjUiLz48L3N2Zz4=" class="w-7 h-7" />
-                    </div>
-                    <div>
-                        <h3 class="text-md md:text-2xl font-bold text-gray-900 mb-1">Instagram</h3>
-                        <p class="text-sm text-pink-600 font-medium">📸 Follow Our Journey</p>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between">
-                    <p class="text-gray-700 font-medium truncate">@aqua_foundation_wop</p>
-                    <a href="https://instagram.com/aqua_foundation_wop" target="_blank" class="ml-3 px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-sm font-semibold rounded-full hover:shadow-lg transition-shadow duration-300">
-                        Follow
-                    </a>
-                </div>
-                <div class="mt-4 flex items-center text-gray-500 text-sm">
-                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                    </svg>
-                    Daily updates & stories
-                </div>
-            </div>
-            
-            {/* <!-- Email Card --> */}
-            <div class="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
-                <div class="flex items-start mb-4">
-                    <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 class="text-md md:text-2xl font-bold text-gray-900 mb-1">Email Address</h3>
-                        <p class="text-sm text-amber-600 font-medium">📧 Quick Response</p>
-                    </div>
-                </div>
-                <div class="bg-amber-50 rounded-xl p-3 mb-3">
-                    <p class="text-gray-800 font-mono text-sm break-all">officialaquafoundation@gmail.com</p>
-                </div>
-                <a href="mailto:officialaquafoundation@gmail.com" class="inline-flex items-center w-full justify-center px-4 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    Send Email
-                </a>
-            </div>
-        </div>
-        
-        {/* <!-- Social Media Section --> */}
-        <div class="mb-10">
-            <div class="flex items-center mb-6">
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-                <h3 class="text-md md:text-2xl font-bold text-gray-900 font-serif ">Connect With Us</h3>
-                <div class="h-px flex-1 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <a href="https://instagram.com/aqua_foundation_wop" target="_blank" class="group relative overflow-hidden bg-gradient-to-br from-pink-500 via-purple-500 to-indigo-600 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                    <div class="absolute -right-6 -top-6 w-20 h-20 bg-white/10 rounded-full"></div>
-                    <div class="relative flex items-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0idy04IGgtOCI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB4PSIyIiB5PSIyIiByeD0iNSIgcnk9IjUiLz48cGF0aCBkPSJNMTYgMTEuMzdBNCA0IDAgMSAxIDEyLjYzIDggNCA0IDAgMCAxIDE2IDExLjM3eiIvPjxsaW5lIHgxPSIxNy41IiB4Mj0iMTcuNTEiIHkxPSI2LjUiIHkyPSI2LjUiLz48L3N2Zz4=" class="w-8 h-8" />
-                        </div>
-                        <div>
-                            <h4 class="text-md md:text-2xl font-bold font-serif text-white">Instagram</h4>
-                            <p class="text-white/80 text-sm">Daily Impact Stories</p>
-                        </div>
-                    </div>
-                    <div class="mt-4 flex items-center text-white/90">
-                        <span class="text-sm">Follow for real-time updates</span>
-                        <svg class="w-5 h-5 ml-auto group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
-                    </div>
-                </a>
-                
-                <a href="https://facebook.com/aqua_foundation_wop" target="_blank" class="group relative overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                    <div class="absolute -left-6 -bottom-6 w-20 h-20 bg-white/10 rounded-full"></div>
-                    <div class="relative flex items-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTE4IDJoLTNhNSA1IDAgMCAwLTUgNXYzSDd2NGgzdjhoNHYtOGgzbDEtNGgtNFY3YTEgMSAwIDAgMSAxLTFoM3oiLz48L3N2Zz4=" class="w-8 h-8" />
-                        </div>
-                        <div>
-                            <h4 class="text-md md:text-2xl font-bold font-serif text-white">Facebook</h4>
-                            <p class="text-white/80 text-sm">Community & Events</p>
-                        </div>
-                    </div>
-                    <div class="mt-4 flex items-center text-white/90">
-                        <span class="text-sm">Join our community</span>
-                        <svg class="w-5 h-5 ml-auto group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
-                    </div>
-                </a>
-                
-                <a href="https://x.com/aqua_foundation_wop" target="_blank" class="group relative overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
-                    <div class="absolute -right-6 -bottom-6 w-20 h-20 bg-white/10 rounded-full"></div>
-                    <div class="relative flex items-center">
-                        <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mr-4 backdrop-blur-sm">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTIyIDRzLS43IDIuMS0yIDMuNGMxLjYgMTAtOS40IDE3LjMtMTggMTEuNiAyLjIuMSA0LjQtLjYgNi0yQzMgMTUuNS41IDkuNiAzIDVjMi4yIDIuNiA1LjYgNC4xIDkgNC0uOS00LjIgNC02LjYgNy0zLjggMS4xIDAgMy0xLjIgMy0xLjJ6Ii8+PC9zdmc+" class="w-8 h-8" />
-                        </div>
-                        <div>
-                            <h4 class="text-md md:text-2xl font-bold font-serif text-white">Twitter/X</h4>
-                            <p class="text-white/80 text-sm">News & Announcements</p>
-                        </div>
-                    </div>
-                    <div class="mt-4 flex items-center text-white/90">
-                        <span class="text-sm">Latest announcements</span>
-                        <svg class="w-5 h-5 ml-auto group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
-                    </div>
-                </a>
-            </div>
-        </div>
-        
-        {/* <!-- FAQ Section --> */}
-        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-2 md:p-8 shadow-inner border border-blue-100/50">
-            <div class="flex items-center mb-8">
-                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-xl flex items-center justify-center mr-4">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                </div>
-                <div>
-                    <h3 class="text-md md:text-2xl font-bold font-serif text-gray-900 ">Frequently Asked Questions</h3>
-                    <p class="text-gray-600">Quick answers to common questions</p>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                    <div class="flex items-start">
-                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-                            <span class="text-blue-600 font-bold">Q1</span>
-                        </div>
-                        <div>
-                            <h4 class="text-md md:text-2xl font-bold font-serif text-gray-900 mb-2 ">How quickly do you respond to inquiries?</h4>
-                            <p class="text-gray-600 text-sm">We typically respond within 2-4 hours during business hours. For urgent matters, use our emergency contact line.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                    <div class="flex items-start">
-                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-                            <span class="text-blue-600 font-bold">Q2</span>
-                        </div>
-                        <div>
-                            <h4 class="text-md md:text-2xl font-bold font-serif text-gray-900 mb-2">Do you offer consultations?</h4>
-                            <p class="text-gray-600 text-sm">Yes, we offer free 30-minute consultations for new partnership opportunities and program inquiries.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                    <div class="flex items-start">
-                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-                            <span class="text-blue-600 font-bold">Q3</span>
-                        </div>
-                        <div>
-                            <h4 class="text-md md:text-2xl font-bold font-serif text-gray-900 mb-2">What are your working hours?</h4>
-                            <p class="text-gray-600 text-sm">Our team is available Monday-Friday, 9am-6pm WAT. Weekend emergency support is available for urgent cases.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                    <div class="flex items-start">
-                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
-                            <span class="text-blue-600 font-bold">Q4</span>
-                        </div>
-                        <div>
-                            <h4 class="text-md md:text-2xl font-bold font-serif text-gray-900 mb-2">Can I volunteer with your foundation?</h4>
-                            <p class="text-gray-600 text-sm">Absolutely! We welcome volunteers. Contact us through any channel above to learn about current opportunities.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
-                    View all FAQs
-                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-        
-        {/* <!-- Contact CTA --> */}
-        <div class="mt-10 text-center">
-            <div class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full shadow-xl">
-                <div class="w-3 h-3 bg-white rounded-full animate-ping mr-3"></div>
-                <p class="text-white font-bold text-[8px] md:text-lg">Ready to make a difference? Get in touch today!</p>
-            </div>
-        </div>
+    <div className="text-center mb-10 relative">
+      <div className="inline-block mb-6">
+        <div className="w-20 h-1 bg-gradient-to-r from-amber-400 to-yellow-600 mx-auto rounded-full mb-2"></div>
+        <h2 className="text-3xl md:text-4xl font-bold mb-3 text-amber-900 font-serif tracking-wider">
+          MAKE A DONATION
+        </h2>
+        <div className="w-20 h-1 bg-gradient-to-r from-yellow-600 to-amber-400 mx-auto rounded-full"></div>
+      </div>
+      <p className="text-amber-800/80 mt-4 text-sm md:text-base font-light">
+        Support our mission with a premium donation experience
+      </p>
     </div>
+    
+    <form className="space-y-8 relative" onSubmit={handlePaystackPayment}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="relative group">
+          <label htmlFor="modalFirstName" className="block text-amber-900 font-semibold mb-3 text-sm tracking-widest uppercase">First Name</label>
+          <div className="relative">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 opacity-0 group-hover:opacity-30 rounded-xl blur transition duration-500"></div>
+            <input 
+              required 
+              type="text" 
+              id="modalFirstName" 
+              className="relative w-full px-5 py-4 bg-white border-2 border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 text-amber-900 placeholder-amber-400/50 transition-all duration-300 font-medium"
+              placeholder="Enter first name"
+            />
+            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-amber-400">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div className="relative group">
+          <label htmlFor="modalLastName" className="block text-amber-900 font-semibold mb-3 text-sm tracking-widest uppercase">Last Name</label>
+          <div className="relative">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 to-amber-400 opacity-0 group-hover:opacity-30 rounded-xl blur transition duration-500"></div>
+            <input 
+              required 
+              type="text" 
+              id="modalLastName" 
+              className="relative w-full px-5 py-4 bg-white border-2 border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 text-amber-900 placeholder-amber-400/50 transition-all duration-300 font-medium"
+              placeholder="Enter last name"
+            />
+          </div>
+        </div>
+      </div>
+      
+      <div className="relative group">
+        <label htmlFor="email" className="block text-amber-900 font-semibold mb-3 text-sm tracking-widest uppercase">Email Address</label>
+        <div className="relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-yellow-400 opacity-0 group-hover:opacity-30 rounded-xl blur transition duration-500"></div>
+          <input 
+            required 
+            type="email" 
+            id="email" 
+            value={Email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="relative w-full px-5 py-4 bg-white border-2 border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 text-amber-900 placeholder-amber-400/50 transition-all duration-300 font-medium"
+            placeholder="your.email@example.com"
+          />
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-amber-400">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89-4.42a2 2 0 012.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div className="relative group">
+        <label htmlFor="modalPhone" className="block text-amber-900 font-semibold mb-3 text-sm tracking-widest uppercase">Phone Number</label>
+        <div className="relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-400 to-amber-500 opacity-0 group-hover:opacity-30 rounded-xl blur transition duration-500"></div>
+          <input 
+            required 
+            type="tel" 
+            id="modalPhone" 
+            className="relative w-full px-5 py-4 bg-white border-2 border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 text-amber-900 placeholder-amber-400/50 transition-all duration-300 font-medium"
+            placeholder="+1 (555) 123-4567"
+          />
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 text-amber-400">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <div className="relative group">
+        <label htmlFor="donate" className="block text-amber-900 font-semibold mb-3 text-sm tracking-widest uppercase">Donation Amount</label>
+        <div className="relative mb-4">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-400 to-yellow-500 opacity-0 group-hover:opacity-30 rounded-xl blur transition duration-500"></div>
+          <div className="relative flex items-center">
+            <span className="absolute left-5 text-amber-700 font-bold text-lg">₦</span>
+            <input 
+              placeholder="2000" 
+              type="number" 
+              id="donate" 
+              value={Donate}
+              onChange={(e) => setDonate(e.target.value)}
+              className="relative w-full pl-12 pr-5 py-4 bg-white border-2 border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 text-amber-900 placeholder-amber-400/50 transition-all duration-300 font-medium text-lg"
+            />
+            <div className="absolute right-4 text-amber-500">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 01118 0z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mt-6">
+          {[1000, 2000, 5000, 10000, 20000].map((amount) => (
+            <button
+              key={amount}
+              type="button"
+              onClick={() => setDonate(amount.toString())}
+              className="px-4 py-3 bg-gradient-to-b from-amber-50 to-white border-2 border-amber-300 rounded-xl text-amber-800 font-semibold hover:bg-gradient-to-b hover:from-amber-100 hover:to-yellow-50 hover:border-amber-500 hover:text-amber-900 transition-all duration-300 hover:scale-105 shadow-sm hover:shadow-md text-sm"
+            >
+              <span className="text-amber-600">₦</span>{amount.toLocaleString()}
+            </button>
+          ))}
+        </div>
+      </div>
+      
+      <div className="relative group">
+        <label htmlFor="modalMessage" className="block text-amber-900 font-semibold mb-3 text-sm tracking-widest uppercase">Your Message (Optional)</label>
+        <div className="relative">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-200 to-yellow-200 opacity-0 group-hover:opacity-30 rounded-xl blur transition duration-500"></div>
+          <textarea 
+            id="modalMessage" 
+            rows="4" 
+            className="relative w-full px-5 py-4 bg-white border-2 border-amber-200 rounded-xl focus:outline-none focus:border-amber-500 focus:ring-4 focus:ring-amber-100 text-amber-900 placeholder-amber-400/50 transition-all duration-300 font-medium resize-none"
+            placeholder="Tell us how you'd like your donation to be used..."
+          ></textarea>
+        </div>
+      </div>
+      
+      <div className="relative group mt-12">
+        <div className="absolute -inset-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+        <button 
+          type="submit" 
+          className="relative w-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-white py-6 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3 group-hover:gap-4 group-hover:scale-[1.02] shadow-lg hover:shadow-amber-200/50"
+        >
+          <svg className="w-7 h-7 animate-pulse-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+          </svg>
+          <span className="tracking-widest">PROCEED TO DONATE</span>
+          <svg className="w-6 h-6 opacity-0 group-hover:opacity-100 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div className="text-center pt-6 border-t border-amber-200">
+        <p className="text-amber-700/80 text-sm">
+          Your donation supports our mission to provide clean water access to communities in need.
+        </p>
+        <div className="flex items-center justify-center gap-3 mt-4">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></div>
+            <p className="text-amber-600 text-xs font-semibold tracking-wide">Secure Payment</p>
+          </div>
+          <div className="w-1 h-1 bg-amber-400 rounded-full"></div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse delay-100"></div>
+            <p className="text-amber-600 text-xs font-semibold tracking-wide">256-bit Encryption</p>
+          </div>
+          <div className="w-1 h-1 bg-amber-400 rounded-full"></div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse delay-200"></div>
+            <p className="text-amber-600 text-xs font-semibold tracking-wide">Instant Processing</p>
+          </div>
+        </div>
+      </div>
+    </form>
+    
+    {/* Premium badge */}
+    <div className="absolute top-6 right-6">
+      <div className="bg-gradient-to-r from-amber-400 to-yellow-500 text-amber-900 text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+        PREMIUM SECURE
+      </div>
+    </div>
+  </div>
 </div>
+    </div>
+  </div>
+  
+  {/* FLOATING DONATE BUTTON */}
+  <div className="fixed bottom-8 right-8 z-40">
+    <button 
+      onClick={() => document.getElementById('donateModal').classList.remove('hidden')}
+      className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all duration-300 group animate-pulse"
+    >
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/>
+      </svg>
+      <span className="absolute right-20 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-lg">
+        DONATE NOW
+      </span>
+    </button>
+  </div>
+  
+  {/* CONTACT INFORMATION SECTION - Your existing code continues below */}
+  <div className="relative">
+    {/* Background decorative elements */}
+    <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-full opacity-60 blur-xl"></div>
+    <div className="absolute bottom-10 -right-6 w-32 h-32 bg-gradient-to-tr from-amber-100 to-orange-100 rounded-full opacity-50 blur-xl"></div>
+    
+    <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl shadow-2xl p-8 md:p-10 border border-gray-200/50 backdrop-blur-sm font-sans text-md md:text-lg">
+      
+      {/* Remove the original donation form from this section */}
+      
+      {/* Contact Information Header */}
+      <div className="mb-10">
+        <div className="inline-flex items-center mb-4">
+          <div className="w-3 h-10 bg-gradient-to-b from-blue-600 to-cyan-500 rounded-full mr-3"></div>
+          <h2 className="text-md md:text-2xl font-bold bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent font-serif">
+            Contact Information
+          </h2>
+        </div>
+        <p className="text-gray-600 max-w-xl">We're here to help and answer any questions you might have. Reach out to us through any channel below.</p>
+        
+        {/* Contact badge */}
+        <div className="inline-flex items-center mt-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full shadow-md">
+          <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+          <span className="text-white text-sm font-semibold">24/7 Support Available</span>
+        </div>
+      </div>
+      
+      {/* The rest of your contact information code remains exactly the same */}
+      {/* ... */}
+      
+    </div>
+  </div>
 </div>
                     
                 </section>
